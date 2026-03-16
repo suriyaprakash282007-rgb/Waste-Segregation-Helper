@@ -1,0 +1,16 @@
+# Core Flask
+flask>=3.0.0
+flask-cors>=4.0.0
+
+# Image processing (local AI engine)
+Pillow>=10.0.0
+numpy>=1.24.0
+
+# Environment config
+python-dotenv>=1.0.0
+
+# Production server
+gunicorn>=21.2.0
+
+# Optional: AWS Rekognition (only needed if using AWS credentials)
+# boto3>=1.34.0

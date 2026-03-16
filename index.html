@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>♻️ AI Waste Segregation Helper – Smart Waste Classification</title>
+  <meta name="description"
+    content="Upload a photo of your waste and our AI instantly classifies it into Wet Waste, Dry Waste, Recyclable, or E-Waste. Promote proper waste segregation and a cleaner planet." />
+  <meta name="keywords"
+    content="waste segregation, AI waste classifier, recycling helper, e-waste, wet waste, dry waste, environment" />
+  <meta property="og:title" content="AI Waste Segregation Helper" />
+  <meta property="og:description" content="AI-powered waste classification for a cleaner planet." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════════════════════ HEADER -->
+  <header id="site-header">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+      <div class="nav-brand">
+        <div class="nav-logo" aria-hidden="true">♻️</div>
+        <div class="nav-title">
+          <span class="brand-name">WasteSense</span>
+          <span class="brand-tag">AI Powered</span>
+        </div>
+      </div>
+      <div class="nav-links" role="menubar">
+        <a href="#home" class="nav-link active" role="menuitem">Home</a>
+        <a href="#classifier" class="nav-link" role="menuitem">Classify</a>
+        <a href="#categories" class="nav-link" role="menuitem">Categories</a>
+        <a href="#how-it-works" class="nav-link" role="menuitem">How It Works</a>
+        <a href="#tech-stack" class="nav-link" role="menuitem">Tech Stack</a>
+        <a href="#stats" class="nav-link" role="menuitem">Stats</a>
+        <a href="#classifier" class="btn-nav-cta" id="nav-cta-btn" role="button">
+          <i class="fa-solid fa-camera" aria-hidden="true"></i> Scan Now
+        </a>
+      </div>
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ══════════════════════════════════════════════════════════════ HERO -->
+  <section id="home" class="hero-section" aria-labelledby="hero-heading">
+    <!-- Animated background particles -->
+    <div class="hero-bg" aria-hidden="true">
+      <div class="particle" style="--x:15%;--y:20%;--size:80px;--delay:0s;--color:#2ecc71"></div>
+      <div class="particle" style="--x:75%;--y:15%;--size:120px;--delay:1.5s;--color:#3498db"></div>
+      <div class="particle" style="--x:50%;--y:60%;--size:60px;--delay:3s;--color:#f39c12"></div>
+      <div class="particle" style="--x:85%;--y:70%;--size:90px;--delay:0.8s;--color:#e74c3c"></div>
+      <div class="particle" style="--x:10%;--y:75%;--size:50px;--delay:2s;--color:#9b59b6"></div>
+      <div class="particle" style="--x:60%;--y:30%;--size:70px;--delay:4s;--color:#2ecc71"></div>
+      <div class="floating-icon" style="--x:5%;--y:40%;--delay:0s">🌿</div>
+      <div class="floating-icon" style="--x:90%;--y:30%;--delay:1s">📱</div>
+      <div class="floating-icon" style="--x:20%;--y:80%;--delay:2s">♻️</div>
+      <div class="floating-icon" style="--x:70%;--y:80%;--delay:3s">🥤</div>
+    </div>
+
+    <div class="hero-content container">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        AI-Powered Waste Intelligence
+      </div>
+      <h1 id="hero-heading" class="hero-title">
+        Segregate Waste <br />
+        <span class="gradient-text">Smartly with AI</span>
+      </h1>
+      <p class="hero-subtitle">
+        Upload a photo of any waste item and our intelligent AI instantly classifies it —
+        empowering you to dispose of waste responsibly and build a cleaner, greener world. 🌍
+      </p>
+      <div class="hero-actions">
+        <a href="#classifier" class="btn-primary" id="hero-classify-btn">
+          <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
+          Start Classifying
+        </a>
+        <a href="#how-it-works" class="btn-secondary" id="hero-learn-btn">
+          <i class="fa-solid fa-circle-play" aria-hidden="true"></i>
+          How It Works
+        </a>
+      </div>
+      <div class="hero-stats" role="list" aria-label="Impact statistics">
+        <div class="hero-stat" role="listitem">
+          <span class="stat-num" data-target="4">0</span>
+          <span class="stat-lbl">Categories</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="hero-stat" role="listitem">
+          <span class="stat-num" data-target="95" data-suffix="%">0</span>
+          <span class="stat-lbl">Accuracy</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="hero-stat" role="listitem">
+          <span class="stat-num" data-target="2" data-suffix="s">0</span>
+          <span class="stat-lbl">Instant Result</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <span>Scroll to explore</span>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ CLASSIFIER -->
+  <section id="classifier" class="classifier-section" aria-labelledby="classifier-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">🤖 AI Classification Engine</div>
+        <h2 id="classifier-heading" class="section-title">Upload & Classify Your Waste</h2>
+        <p class="section-subtitle">
+          Drop your image below. Our AI analyses it instantly using computer vision technology.
+        </p>
+      </div>
+
+      <!-- Status banner — shown/hidden and updated by app.js based on backend status -->
+      <div class="demo-banner" id="demo-banner" role="status" aria-live="polite" style="display:none">
+        <i class="fa-solid fa-flask-vial" aria-hidden="true"></i>
+        <strong>Demo Mode Active</strong> — Results are simulated. Connect AWS Rekognition for real AI classification.
+        <a href="#how-it-works" class="demo-link">Setup Guide →</a>
+      </div>
+
+      <div class="classifier-grid">
+        <!-- Upload Panel -->
+        <div class="upload-panel" id="upload-panel">
+          <form id="upload-form" novalidate>
+            <div class="drop-zone" id="drop-zone" role="button" tabindex="0"
+              aria-label="Upload waste image by clicking or dragging and dropping"
+              aria-describedby="upload-instructions">
+              <div class="drop-zone-content" id="drop-zone-default">
+                <div class="upload-icon-wrap" aria-hidden="true">
+                  <div class="upload-ring ring-1"></div>
+                  <div class="upload-ring ring-2"></div>
+                  <div class="upload-ring ring-3"></div>
+                  <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                </div>
+                <p class="upload-title">Drop your image here</p>
+                <p class="upload-desc" id="upload-instructions">or click to browse — PNG, JPG, JPEG, WEBP</p>
+                <button type="button" class="btn-upload" id="browse-btn" aria-label="Browse files to upload">
+                  <i class="fa-solid fa-folder-open" aria-hidden="true"></i> Browse Files
+                </button>
+              </div>
+
+              <!-- Image preview (hidden by default) -->
+              <div class="preview-content" id="preview-content" hidden aria-hidden="true">
+                <img id="preview-img" src="" alt="Uploaded waste image preview" class="preview-image" />
+                <div class="preview-overlay">
+                  <button type="button" class="btn-change" id="change-image-btn" aria-label="Change uploaded image">
+                    <i class="fa-solid fa-rotate" aria-hidden="true"></i> Change
+                  </button>
+                </div>
+              </div>
+
+              <input type="file" id="file-input" accept="image/png,image/jpeg,image/jpg,image/webp" hidden
+                aria-label="File upload input" />
+            </div>
+
+            <!-- Controls -->
+            <div class="upload-controls">
+              <button type="submit" class="btn-classify" id="classify-btn" aria-label="Classify uploaded waste image"
+                disabled>
+                <span class="btn-text">
+                  <i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i>
+                  Classify Waste
+                </span>
+                <span class="btn-loading" hidden aria-live="polite">
+                  <i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i>
+                  Analysing…
+                </span>
+              </button>
+              <p class="upload-hint" id="upload-hint" role="status" aria-live="polite"></p>
+            </div>
+
+            <!-- Sample images -->
+            <div class="sample-section">
+              <p class="sample-label">Try a sample image:</p>
+              <div class="sample-grid" role="list" aria-label="Sample waste images">
+                <button type="button" class="sample-btn" data-category="wet_waste" role="listitem"
+                  aria-label="Sample wet waste image">
+                  <span class="sample-emoji">🥬</span>
+                  <span>Wet Waste</span>
+                </button>
+                <button type="button" class="sample-btn" data-category="dry_waste" role="listitem"
+                  aria-label="Sample dry waste image">
+                  <span class="sample-emoji">🗑️</span>
+                  <span>Dry Waste</span>
+                </button>
+                <button type="button" class="sample-btn" data-category="recyclable" role="listitem"
+                  aria-label="Sample recyclable waste image">
+                  <span class="sample-emoji">♻️</span>
+                  <span>Recyclable</span>
+                </button>
+                <button type="button" class="sample-btn" data-category="e_waste" role="listitem"
+                  aria-label="Sample e-waste image">
+                  <span class="sample-emoji">📱</span>
+                  <span>E-Waste</span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Result Panel -->
+        <div class="result-panel" id="result-panel" aria-live="polite" aria-atomic="true">
+          <!-- Initial state -->
+          <div class="result-idle" id="result-idle">
+            <div class="idle-illustration" aria-hidden="true">
+              <div class="idle-orbit">
+                <div class="orbit-item" style="--i:0">🥬</div>
+                <div class="orbit-item" style="--i:1">🗑️</div>
+                <div class="orbit-item" style="--i:2">♻️</div>
+                <div class="orbit-item" style="--i:3">📱</div>
+              </div>
+              <div class="idle-center">AI</div>
+            </div>
+            <h3>Awaiting Your Image</h3>
+            <p>Upload a waste image to see the AI classification result here.</p>
+          </div>
+
+          <!-- Loading state -->
+          <div class="result-loading" id="result-loading" hidden>
+            <div class="scanner-animation" aria-hidden="true">
+              <div class="scanner-box">
+                <div class="scanner-line"></div>
+                <div class="scanner-corner tl"></div>
+                <div class="scanner-corner tr"></div>
+                <div class="scanner-corner bl"></div>
+                <div class="scanner-corner br"></div>
+              </div>
+            </div>
+            <h3>Analysing Waste…</h3>
+            <p>AI is examining the image properties…</p>
+            <div class="loading-steps" aria-hidden="true">
+              <div class="step active" id="step-1">
+                <i class="fa-solid fa-image"></i> Loading image
+              </div>
+              <div class="step" id="step-2">
+                <i class="fa-solid fa-brain"></i> Running AI model
+              </div>
+              <div class="step" id="step-3">
+                <i class="fa-solid fa-tag"></i> Generating result
+              </div>
+            </div>
+          </div>
+
+          <!-- Success state -->
+          <div class="result-success" id="result-success" hidden>
+            <div class="result-header">
+              <div class="result-emoji" id="result-emoji" aria-hidden="true"></div>
+              <div class="result-title-block">
+                <div class="result-badge">Classification Result</div>
+                <h3 class="result-category" id="result-category"></h3>
+                <div class="result-bin" id="result-bin"></div>
+              </div>
+            </div>
+
+            <!-- Confidence meter -->
+            <div class="confidence-block">
+              <div class="confidence-label">
+                <span>AI Confidence</span>
+                <span id="confidence-value" class="confidence-pct"></span>
+              </div>
+              <div class="confidence-bar-wrap" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+                aria-valuenow="0" aria-label="AI confidence level">
+                <div class="confidence-bar" id="confidence-bar"></div>
+              </div>
+            </div>
+
+            <p class="result-description" id="result-description"></p>
+
+            <!-- Disposal instructions -->
+            <div class="result-disposal" id="result-disposal">
+              <div class="disposal-icon" aria-hidden="true"><i class="fa-solid fa-circle-info"></i></div>
+              <p id="disposal-text"></p>
+            </div>
+
+            <!-- Tips & Impact -->
+            <div class="result-tabs">
+              <button class="tab-btn active" data-tab="tips" id="tab-tips-btn" aria-selected="true" role="tab">
+                💡 Tips
+              </button>
+              <button class="tab-btn" data-tab="examples" id="tab-examples-btn" aria-selected="false" role="tab">
+                📋 Examples
+              </button>
+              <button class="tab-btn" data-tab="impact" id="tab-impact-btn" aria-selected="false" role="tab">
+                🌍 Impact
+              </button>
+            </div>
+
+            <div class="tab-content" id="tab-tips" role="tabpanel" aria-labelledby="tab-tips-btn">
+              <ul class="tips-list" id="tips-list"></ul>
+            </div>
+            <div class="tab-content" id="tab-examples" role="tabpanel" aria-labelledby="tab-examples-btn" hidden>
+              <div class="examples-grid" id="examples-grid"></div>
+            </div>
+            <div class="tab-content" id="tab-impact" role="tabpanel" aria-labelledby="tab-impact-btn" hidden>
+              <div class="impact-card" id="impact-text"></div>
+            </div>
+
+            <!-- Detected labels -->
+            <div class="detected-labels" id="detected-labels-block">
+              <p class="labels-title">AI Detected Objects:</p>
+              <div class="labels-wrap" id="labels-wrap"></div>
+            </div>
+
+            <!-- Actions -->
+            <div class="result-actions">
+              <button class="btn-secondary-sm" id="scan-again-btn" aria-label="Scan another waste item">
+                <i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Scan Again
+              </button>
+              <button class="btn-share" id="share-btn" aria-label="Share classification result">
+                <i class="fa-solid fa-share-nodes" aria-hidden="true"></i> Share
+              </button>
+            </div>
+          </div>
+
+          <!-- Error state -->
+          <div class="result-error" id="result-error" hidden>
+            <div class="error-icon" aria-hidden="true"><i class="fa-solid fa-triangle-exclamation"></i></div>
+            <h3>Classification Failed</h3>
+            <p id="error-message">Could not connect to the server. Using demo mode instead.</p>
+            <button class="btn-secondary-sm" id="retry-btn" aria-label="Retry classification">
+              <i class="fa-solid fa-rotate" aria-hidden="true"></i> Retry
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════ CATEGORIES -->
+  <section id="categories" class="categories-section" aria-labelledby="categories-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">🗂️ Waste Types</div>
+        <h2 id="categories-heading" class="section-title">Four Waste Categories</h2>
+        <p class="section-subtitle">Understanding waste types is the first step towards responsible disposal.</p>
+      </div>
+      <div class="categories-grid">
+        <article class="category-card" id="card-wet" style="--accent:#2ecc71" aria-label="Wet Waste category">
+          <div class="card-top">
+            <div class="card-emoji" aria-hidden="true">🥬</div>
+            <div class="card-number" aria-hidden="true">01</div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Wet Waste</h3>
+            <p class="card-desc">Organic, biodegradable materials from kitchen and garden.</p>
+            <div class="card-bin bin-green">
+              <i class="fa-solid fa-trash" aria-hidden="true"></i> Green Bin
+            </div>
+            <div class="card-examples">
+              <span>Food scraps</span>
+              <span>Vegetable peels</span>
+              <span>Garden waste</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-tip">♻ Can be composted or converted to biogas</span>
+          </div>
+        </article>
+
+        <article class="category-card" id="card-dry" style="--accent:#3498db" aria-label="Dry Waste category">
+          <div class="card-top">
+            <div class="card-emoji" aria-hidden="true">🗑️</div>
+            <div class="card-number" aria-hidden="true">02</div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Dry Waste</h3>
+            <p class="card-desc">Non-biodegradable, non-recyclable materials that go to landfill.</p>
+            <div class="card-bin bin-blue">
+              <i class="fa-solid fa-trash" aria-hidden="true"></i> Blue Bin
+            </div>
+            <div class="card-examples">
+              <span>Plastic bags</span>
+              <span>Wrappers</span>
+              <span>Styrofoam</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-tip">🚫 Reduce use of single-use plastics</span>
+          </div>
+        </article>
+
+        <article class="category-card" id="card-recyclable" style="--accent:#f39c12"
+          aria-label="Recyclable Waste category">
+          <div class="card-top">
+            <div class="card-emoji" aria-hidden="true">♻️</div>
+            <div class="card-number" aria-hidden="true">03</div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Recyclable Waste</h3>
+            <p class="card-desc">Materials that can be processed and converted into new products.</p>
+            <div class="card-bin bin-yellow">
+              <i class="fa-solid fa-trash" aria-hidden="true"></i> Yellow Bin
+            </div>
+            <div class="card-examples">
+              <span>Metal cans</span>
+              <span>Glass bottles</span>
+              <span>Cardboard</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-tip">💡 Clean items before placing in recycling</span>
+          </div>
+        </article>
+
+        <article class="category-card" id="card-ewaste" style="--accent:#e74c3c" aria-label="E-Waste category">
+          <div class="card-top">
+            <div class="card-emoji" aria-hidden="true">📱</div>
+            <div class="card-number" aria-hidden="true">04</div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">E-Waste</h3>
+            <p class="card-desc">Electronic waste containing hazardous components needing special disposal.</p>
+            <div class="card-bin bin-red">
+              <i class="fa-solid fa-trash" aria-hidden="true"></i> Red Bin
+            </div>
+            <div class="card-examples">
+              <span>Old phones</span>
+              <span>Batteries</span>
+              <span>Laptops</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="card-tip">⚠️ Never dump or burn — visit certified centres</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════ HOW IT WORKS -->
+  <section id="how-it-works" class="how-section" aria-labelledby="how-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">⚙️ Technology</div>
+        <h2 id="how-heading" class="section-title">How It Works</h2>
+        <p class="section-subtitle">Powered by AWS Rekognition and a smart classification layer.</p>
+      </div>
+
+      <div class="how-flow" role="list" aria-label="Process steps">
+        <div class="flow-step" role="listitem">
+          <div class="flow-icon step-1" aria-hidden="true">
+            <i class="fa-solid fa-image"></i>
+          </div>
+          <div class="flow-content">
+            <h3>1. Upload Image</h3>
+            <p>User takes/uploads a photo of the waste item via the web interface.</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+
+        <div class="flow-step" role="listitem">
+          <div class="flow-icon step-2" aria-hidden="true">
+            <i class="fa-solid fa-server"></i>
+          </div>
+          <div class="flow-content">
+            <h3>2. API Gateway</h3>
+            <p>Request routes through Flask backend → AWS API Gateway securely.</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+
+        <div class="flow-step" role="listitem">
+          <div class="flow-icon step-3" aria-hidden="true">
+            <i class="fa-solid fa-brain"></i>
+          </div>
+          <div class="flow-content">
+            <h3>3. AWS Rekognition</h3>
+            <p>AI model detects objects with high confidence labels using computer vision.</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+
+        <div class="flow-step" role="listitem">
+          <div class="flow-icon step-4" aria-hidden="true">
+            <i class="fa-solid fa-tag"></i>
+          </div>
+          <div class="flow-content">
+            <h3>4. Classify & Return</h3>
+            <p>Results are mapped to waste categories and returned with disposal instructions.</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <!-- Tech stack pills -->
+      <div class="tech-stack" role="list" aria-label="Technologies used">
+        <div class="tech-pill" role="listitem"><i class="fa-brands fa-html5" aria-hidden="true"></i> HTML5 / CSS3</div>
+        <div class="tech-pill" role="listitem"><i class="fa-brands fa-js" aria-hidden="true"></i> JavaScript</div>
+        <div class="tech-pill" role="listitem"><i class="fa-brands fa-python" aria-hidden="true"></i> Python Flask</div>
+        <div class="tech-pill" role="listitem"><i class="fa-brands fa-aws" aria-hidden="true"></i> AWS Rekognition</div>
+        <div class="tech-pill" role="listitem"><i class="fa-solid fa-database" aria-hidden="true"></i> DynamoDB</div>
+        <div class="tech-pill" role="listitem"><i class="fa-solid fa-cloud" aria-hidden="true"></i> Amazon S3</div>
+        <div class="tech-pill" role="listitem"><i class="fa-solid fa-bolt" aria-hidden="true"></i> AWS Lambda</div>
+      </div>
+
+      <!-- Setup card -->
+      <div class="setup-card">
+        <div class="setup-icon" aria-hidden="true"><i class="fa-solid fa-key"></i></div>
+        <div class="setup-content">
+          <h3>Connect AWS Rekognition</h3>
+          <p>To enable real AI classification, add your AWS credentials to <code>backend/.env</code>:</p>
+          <pre aria-label="Environment configuration example"><code>AWS_ACCESS_KEY_ID=your_key
+AWS_SECRET_ACCESS_KEY=your_secret
+AWS_REGION=us-east-1
+USE_DEMO_MODE=false</code></pre>
+          <p>Then restart the Flask backend and the app will use real AWS Rekognition!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ STATS -->
+  <section id="stats" class="stats-section" aria-labelledby="stats-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">📊 Impact</div>
+        <h2 id="stats-heading" class="section-title">Why Proper Segregation Matters</h2>
+        <p class="section-subtitle">Small actions compound into massive environmental change.</p>
+      </div>
+
+      <div class="impact-grid">
+        <div class="impact-stat-card" id="impact-total">
+          <div class="impact-icon" style="--c:#2ecc71" aria-hidden="true">🌍</div>
+          <div class="impact-number counter" data-target="2.1" data-suffix="B">0</div>
+          <div class="impact-label">Tons of waste generated yearly</div>
+        </div>
+        <div class="impact-stat-card" id="impact-recyclable">
+          <div class="impact-icon" style="--c:#f39c12" aria-hidden="true">♻️</div>
+          <div class="impact-number counter" data-target="32" data-suffix="%">0</div>
+          <div class="impact-label">Of waste is currently recycled</div>
+        </div>
+        <div class="impact-stat-card" id="impact-savings">
+          <div class="impact-icon" style="--c:#3498db" aria-hidden="true">💧</div>
+          <div class="impact-number counter" data-target="7000" data-suffix="L">0</div>
+          <div class="impact-label">Water saved per ton of recycled paper</div>
+        </div>
+        <div class="impact-stat-card" id="impact-energy">
+          <div class="impact-icon" style="--c:#e74c3c" aria-hidden="true">⚡</div>
+          <div class="impact-number counter" data-target="95" data-suffix="%">0</div>
+          <div class="impact-label">Energy saved by recycling aluminium</div>
+        </div>
+      </div>
+
+      <div class="impact-quote">
+        <blockquote>
+          "Waste is only waste if we waste it. Proper segregation turns it into a resource."
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════ TECH STACK SECTION -->
+  <section id="tech-stack" class="tech-expanded-section" aria-labelledby="tech-heading">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">⚙️ Tech Architecture</div>
+        <h2 id="tech-heading" class="section-title">Expanded <span class="gradient-text">Technologies Used</span></h2>
+        <p class="section-subtitle">A comprehensive look at every layer of technology powering WasteSense AI.</p>
+      </div>
+
+      <!-- Tab navigation -->
+      <div class="tech-tab-nav" role="tablist" aria-label="Technology categories">
+        <button class="tech-tab-btn active" data-tech-tab="frontend" role="tab" aria-selected="true" id="ttab-frontend">
+          <span>🖥️</span> Frontend</button>
+        <button class="tech-tab-btn" data-tech-tab="backend" role="tab" aria-selected="false" id="ttab-backend">
+          <span>⚙️</span> Backend</button>
+        <button class="tech-tab-btn" data-tech-tab="ai" role="tab" aria-selected="false" id="ttab-ai"> <span>🤖</span>
+          AI / ML</button>
+        <button class="tech-tab-btn" data-tech-tab="data" role="tab" aria-selected="false" id="ttab-data">
+          <span>📊</span> Data</button>
+        <button class="tech-tab-btn" data-tech-tab="database" role="tab" aria-selected="false" id="ttab-database">
+          <span>🗄️</span> Database</button>
+        <button class="tech-tab-btn" data-tech-tab="cloud" role="tab" aria-selected="false" id="ttab-cloud">
+          <span>☁️</span> Cloud</button>
+        <button class="tech-tab-btn" data-tech-tab="api" role="tab" aria-selected="false" id="ttab-api"> <span>🔗</span>
+          API</button>
+        <button class="tech-tab-btn" data-tech-tab="infra" role="tab" aria-selected="false" id="ttab-infra">
+          <span>🖧</span> Infra</button>
+        <button class="tech-tab-btn" data-tech-tab="network" role="tab" aria-selected="false" id="ttab-network">
+          <span>🌐</span> Network</button>
+        <button class="tech-tab-btn" data-tech-tab="security" role="tab" aria-selected="false" id="ttab-security">
+          <span>🔐</span> Security</button>
+        <button class="tech-tab-btn" data-tech-tab="backup" role="tab" aria-selected="false" id="ttab-backup">
+          <span>💾</span> Backup</button>
+        <button class="tech-tab-btn" data-tech-tab="monitoring" role="tab" aria-selected="false" id="ttab-monitoring">
+          <span>📈</span> Monitoring</button>
+        <button class="tech-tab-btn" data-tech-tab="devops" role="tab" aria-selected="false" id="ttab-devops">
+          <span>🚀</span> DevOps</button>
+        <button class="tech-tab-btn" data-tech-tab="testing" role="tab" aria-selected="false" id="ttab-testing">
+          <span>🧪</span> Testing</button>
+        <button class="tech-tab-btn" data-tech-tab="extras" role="tab" aria-selected="false" id="ttab-extras">
+          <span>📱</span> Extras</button>
+      </div>
+
+      <!-- Tab panels -->
+      <div class="tech-tab-panels">
+
+        <!-- 1. Frontend -->
+        <div class="tech-panel active" id="tpanel-frontend" role="tabpanel" aria-labelledby="ttab-frontend">
+          <div class="tech-panel-header">
+            <div class="tech-panel-icon" style="--tc:#3498db">🖥️</div>
+            <div>
+              <h3>Frontend Technologies</h3>
+              <p>Used to build the user interface and image upload system.</p>
+            </div>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge" style="--tc:#e34c26"><i class="fa-brands fa-html5"></i> HTML5</span>
+            <span class="tech-badge" style="--tc:#1572b6"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+            <span class="tech-badge" style="--tc:#7952b3"><i class="fa-brands fa-bootstrap"></i> Bootstrap</span>
+            <span class="tech-badge" style="--tc:#38bdf8">🌊 Tailwind CSS</span>
+            <span class="tech-badge" style="--tc:#f7df1e"><i class="fa-brands fa-js"></i> JavaScript ES6+</span>
+            <span class="tech-badge" style="--tc:#61dafb"><i class="fa-brands fa-react"></i> React.js</span>
+            <span class="tech-badge" style="--tc:#000">▲ Next.js</span>
+            <span class="tech-badge" style="--tc:#764abc">🔄 Redux</span>
+            <span class="tech-badge" style="--tc:#00c9a7">⚡ Context API</span>
+            <span class="tech-badge" style="--tc:#5a67d8">📡 Axios / Fetch API</span>
+            <span class="tech-badge" style="--tc:#2ecc71">📂 React Dropzone</span>
+            <span class="tech-badge" style="--tc:#5a0fc8">📲 PWA</span>
+          </div>
+        </div>
+
+        <!-- 2. Backend -->
+        <div class="tech-panel" id="tpanel-backend" role="tabpanel" aria-labelledby="ttab-backend" hidden>
+          <div class="tech-panel-header">
+            <div class="tech-panel-icon" style="--tc:#2ecc71">⚙️</div>
+            <div>
+              <h3>Backend Technologies</h3>
+              <p>Handles business logic, API processing, and AI integration.</p>
+            </div>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge" style="--tc:#68a063"><i class="fa-brands fa-node-js"></i> Node.js</span>
+            <span class="tech-badge" style="--tc:#000">🚂 Express.js</span>
+            <span class="tech-badge" style="--tc:#3776ab"><i class="fa-brands fa-python"></i> Python Flask</span>
+            <span class="tech-badge" style="--tc:#009688">⚡ FastAPI</span>
+            <span class="tech-badge" style="--tc:#f39c12">🔌 REST API</span>
+            <span class="tech-badge" style="--tc:#e74c3c">🔑 JWT Authentication</span>
+            <span class="tech-badge" style="--tc:#9b59b6">📁 Multer</span>
+            <span class="tech-badge" style="--tc:#3498db">🖼️ Sharp</span>
+          </div>
+        </div>
+
+        <!-- 3. AI / ML -->
+        <div class="tech-panel" id="tpanel-ai" role="tabpanel" aria-labelledby="ttab-ai" hidden>
+          <div class="tech-panel-header">
+            <div class="tech-panel-icon" style="--tc:#f39c12">🤖</div>
+            <div>
+              <h3>Artificial Intelligence Technologies</h3>
+              <p>Used for image recognition and waste classification.</p>
+            </div>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge" style="--tc:#ff9900"><i class="fa-brands fa-aws"></i> AWS Rekognition</span>
+            <span class="tech-badge" style="--tc:#ff6f00">🧠 TensorFlow</span>
+            <span class="tech-badge" style="--tc:#ee4c2c">🔥 PyTorch</span>
+            <span class="tech-badge" style="--tc:#2ecc71">👁️ OpenCV</span>
+            <span class="tech-badge" style="--tc:#3498db">📐 Scikit-learn</span>
+            <span class="tech-badge" style="--tc:#9b59b6">🔲 CNN Model</span>
+          </div>
+        </div>
+
+        <!-- 4. Data -->
+        <div class="tech-panel" id="tpanel-data" role="tabpanel" aria-labelledby="ttab-data" hidden>
+          <div class="tech-panel-header">
+            <div class="tech-panel-icon" style="--tc:#e74c3c">📊</div>
+            <div>
+              <h3>Dataset &amp; Data Processing</h3>
+              <p>Used to train AI models and improve detection accuracy.</p>
+            </div>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge" style="--tc:#20beff">📦 Kaggle Dataset</span>
+            <span class="tech-badge" style="--tc:#2ecc71">🗑️ TrashNet Dataset</span>
+            <span class="tech-badge" style="--tc:#9b59b6">🌐 WasteNet Dataset</span>
+            <span class="tech-badge" style="--tc:#013243">🔢 NumPy</span>
+            <span class="tech-badge" style="--tc:#150458">🐼 Pandas</span>
+            <span class="tech-badge" style="--tc:#f39c12">🏷️ LabelImg</span>
+          </div>
+        </div>
+
+        <!-- 5. Database -->
+        <div class="tech-panel" id="tpanel-database" role="tabpanel" aria-labelledby="ttab-database" hidden>
+          <div class="tech-panel-header">
+            <div class="tech-panel-icon" style="--tc:#3498db">🗄️</div>
+            <div>
+              <h3>Database Technologies</h3>
+              <p>Used to store user data, results, and classification logs.</p>
+            </div>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge" style="--tc:#ff9900"><i class="fa-brands fa-aws"></i> Amazon DynamoDB</span>
+            <span class="tech-badge" style="--tc:#47a248">🍃 MongoDB Atlas</span>
+            <span class="tech-badge" style="--tc:#336791">🐘 PostgreSQL</span>
+            <span class="tech-badge" style="--tc:#4479a1">🐬 MySQL</span>
+            <span class="tech-badge" style="--tc:#dc382d">⚡ Redis</span>
+          </div>
+        </div>
+
+        <!-- 6. Cloud -->
+        <div class="tech-panel" id="tpanel-cloud" role="tabpanel" aria-labelledby="ttab-cloud" hidden>
+          <div class="tech-panel-header">
+            <div class="tech-panel-icon" style="--tc:#ff9900">☁️</div>
+            <div>
+              <h3>Cloud &amp; Storage Technologies</h3>
+              <p>Scalable infrastructure hosting images and application data.</p>
+            </div>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge" style="--tc:#ff9900"><i class="fa-brands fa-aws"></i> Amazon S3</span>
+            <span class="tech-badge" style="--tc:#ff9900"><i class="fa-brands fa-aws"></i> AWS EFS</span>
+            <span class="tech-badge" style="--tc:#ff9900"><i class="fa-brands fa-aws"></i> AWS Glacier</span>
+            <span class="tech-badge" style="--tc:#f39c12">🌍 CloudFront CDN</span>
+          </div>
+        </div>
+
+        <!-- 7. API -->
+        <div class="tech-panel" id="tpanel-api" role="tabpanel" aria-labelledby="ttab-api" hidden>
+          <div class="tech-panel-header">
+            <div class="tech-panel-icon" style="--tc:#9b59b6">🔗</div>
+            <div>
+              <h3>API &amp; Integration Technologies</h3>
+              <p>Enables communication between services and external systems.</p>
+            </div>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge" style="--tc:#ff9900"><i class="fa-brands fa-aws"></i> AWS API Gateway</span>
+            <span class="tech-badge" style="--tc:#e535ab">◈ GraphQL</span>
+            <span class="tech-badge" style="--tc:#3498db">🪝 Webhooks</span>
+            <span class="tech-badge" style="--tc:#2ecc71">🔌 RESTful APIs</span>
+          </div>
+        </div>
+
+        <!-- 8. Infra -->
+        <div class="tech-panel" id="tpanel-infra" role="tabpanel" aria-labelledby="ttab-infra" hidden>
+          <div class="tech-panel-header">
+            <div class="tech-panel-icon" style="--tc:#e74c3c">🖧</div>
+            <div>
+              <h3>Server Infrastructure</h3>
+              <p>Compute and containerization technologies running the system.</p>
+            </div>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge" style="--tc:#ff9900"><i class="fa-brands fa-aws"></i> AWS EC2</span>
+            <span class="tech-badge" style="--tc:#ff9900"><i class="fa-brands fa-aws"></i> AWS Lambda</span>
+            <span class="tech-badge" style="--tc:#2496ed"><i class="fa-brands fa-docker"></i> Docker</span>
+            <span class="tech-badge" style="--tc:#326ce5">☸️ Kubernetes</span>
+            <span class="tech-badge" style="--tc:#269539">🔁 NGINX</span>
+          </div>
+        </div>
+
+        <!-- 9. Network -->
+        <div class="tech-panel" id="tpanel-network" role="tabpanel" aria-labelledby="ttab-network" hidden>
+          <div class="tech-panel-header">
+            <div class="tech-panel-icon" style="--tc:#00c9a7">🌐</div>
+            <div>
+              <h3>Networking Technologies</h3>
+              <p>Ensures secure, reliable, and fast communication.</p>
+            </div>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge" style="--tc:#ff9900"><i class="fa-brands fa-aws"></i> AWS VPC</span>
+            <span class="tech-badge" style="--tc:#ff9900"><i class="fa-brands fa-aws"></i> AWS Route 53</span>
+            <span class="tech-badge" style="--tc:#f39c12">⚖️ Elastic Load Balancer</span>
+            <span class="tech-badge" style="--tc:#2ecc71">🔒 HTTPS / SSL/TLS</span>
+          </div>
+        </div>
+
+        <!-- 10. Security -->
+        <div class="tech-panel" id="tpanel-security" role="tabpanel" aria-labelledby="ttab-security" hidden>
+          <div class="tech-panel-header">
+            <div class="tech-panel-icon" style="--tc:#e74c3c">🔐</div>
+            <div>
+              <h3>Security Technologies</h3>
+              <p>Protecting the system from unauthorized access and malicious uploads.</p>
+            </div>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge" style="--tc:#ff9900"><i class="fa-brands fa-aws"></i> AWS IAM</span>
+            <span class="tech-badge" style="--tc:#eb5424">🔑 OAuth 2.0</span>
+            <span class="tech-badge" style="--tc:#e74c3c">🎫 JWT Tokens</span>
+            <span class="tech-badge" style="--tc:#9b59b6">🚦 API Rate Limiting</span>
+            <span class="tech-badge" style="--tc:#3498db">✅ Input Validation</span>
+            <span class="tech-badge" style="--tc:#2ecc71">🦠 Image Malware Scanning</span>
+          </div>
+        </div>
+
+        <!-- 11. Backup -->
+        <div class="tech-panel" id="tpanel-backup" role="tabpanel" aria-labelledby="ttab-backup" hidden>
+          <div class="tech-panel-header">
+            <div class="tech-panel-icon" style="--tc:#f39c12">💾</div>
+            <div>
+              <h3>Backup &amp; Disaster Recovery</h3>
+              <p>Ensuring data durability and business continuity.</p>
+            </div>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge" style="--tc:#ff9900"><i class="fa-brands fa-aws"></i> AWS Backup</span>
+            <span class="tech-badge" style="--tc:#ff9900"><i class="fa-brands fa-aws"></i> S3 Versioning</span>
+            <span class="tech-badge" style="--tc:#3498db">🌏 Cross-region Replication</span>
+            <span class="tech-badge" style="--tc:#9b59b6">📸 DB Snapshot Backups</span>
+          </div>
+        </div>
+
+        <!-- 12. Monitoring -->
+        <div class="tech-panel" id="tpanel-monitoring" role="tabpanel" aria-labelledby="ttab-monitoring" hidden>
+          <div class="tech-panel-header">
+            <div class="tech-panel-icon" style="--tc:#2ecc71">📈</div>
+            <div>
+              <h3>Monitoring &amp; Logging</h3>
+              <p>Observability and tracing across the entire system.</p>
+            </div>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge" style="--tc:#ff9900"><i class="fa-brands fa-aws"></i> AWS CloudWatch</span>
+            <span class="tech-badge" style="--tc:#ff9900"><i class="fa-brands fa-aws"></i> AWS X-Ray</span>
+            <span class="tech-badge" style="--tc:#e6522c">📊 Prometheus</span>
+            <span class="tech-badge" style="--tc:#f46800">📉 Grafana</span>
+            <span class="tech-badge" style="--tc:#00bfb3">🔍 Elasticsearch</span>
+            <span class="tech-badge" style="--tc:#f04e98">📋 Logstash</span>
+            <span class="tech-badge" style="--tc:#005571">📊 Kibana</span>
+          </div>
+        </div>
+
+        <!-- 13. DevOps -->
+        <div class="tech-panel" id="tpanel-devops" role="tabpanel" aria-labelledby="ttab-devops" hidden>
+          <div class="tech-panel-header">
+            <div class="tech-panel-icon" style="--tc:#3498db">🚀</div>
+            <div>
+              <h3>DevOps &amp; Deployment</h3>
+              <p>Automated pipelines and infrastructure-as-code workflows.</p>
+            </div>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge" style="--tc:#f05032"><i class="fa-brands fa-git-alt"></i> Git</span>
+            <span class="tech-badge" style="--tc:#24292e"><i class="fa-brands fa-github"></i> GitHub</span>
+            <span class="tech-badge" style="--tc:#fc6d26"><i class="fa-brands fa-gitlab"></i> GitLab</span>
+            <span class="tech-badge" style="--tc:#2088ff">⚡ GitHub Actions</span>
+            <span class="tech-badge" style="--tc:#ff9900"><i class="fa-brands fa-aws"></i> AWS CodePipeline</span>
+            <span class="tech-badge" style="--tc:#7b42bc">🏗️ Terraform</span>
+          </div>
+        </div>
+
+        <!-- 14. Testing -->
+        <div class="tech-panel" id="tpanel-testing" role="tabpanel" aria-labelledby="ttab-testing" hidden>
+          <div class="tech-panel-header">
+            <div class="tech-panel-icon" style="--tc:#9b59b6">🧪</div>
+            <div>
+              <h3>Testing Tools</h3>
+              <p>Ensuring reliability across API, frontend, and backend layers.</p>
+            </div>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge" style="--tc:#ef5b25">📮 Postman</span>
+            <span class="tech-badge" style="--tc:#c21325">🃏 Jest</span>
+            <span class="tech-badge" style="--tc:#8d6748">☕ Mocha / Chai</span>
+            <span class="tech-badge" style="--tc:#43b02a">🌐 Selenium</span>
+          </div>
+        </div>
+
+        <!-- 15. Extras -->
+        <div class="tech-panel" id="tpanel-extras" role="tabpanel" aria-labelledby="ttab-extras" hidden>
+          <div class="tech-panel-header">
+            <div class="tech-panel-icon" style="--tc:#2ecc71">📱</div>
+            <div>
+              <h3>Optional Extensions</h3>
+              <p>Future-ready integrations for mobile, IoT, and smart features.</p>
+            </div>
+          </div>
+          <div class="tech-badges">
+            <span class="tech-badge" style="--tc:#61dafb"><i class="fa-brands fa-react"></i> React Native</span>
+            <span class="tech-badge" style="--tc:#54c5f8">🐦 Flutter</span>
+            <span class="tech-badge" style="--tc:#2ecc71">🗑️ IoT Smart Dustbin</span>
+            <span class="tech-badge" style="--tc:#4285f4">🗺️ Google Maps API</span>
+            <span class="tech-badge" style="--tc:#9b59b6">🎙️ Voice Assistant</span>
+          </div>
+        </div>
+
+      </div><!-- /tech-tab-panels -->
+
+      <!-- Summary stat bar -->
+      <div class="tech-summary-bar">
+        <div class="tech-sum-item"><span class="tech-sum-num">15</span><span class="tech-sum-lbl">Tech Categories</span>
+        </div>
+        <div class="tech-sum-div"></div>
+        <div class="tech-sum-item"><span class="tech-sum-num">60+</span><span class="tech-sum-lbl">Technologies</span>
+        </div>
+        <div class="tech-sum-div"></div>
+        <div class="tech-sum-item"><span class="tech-sum-num">AWS</span><span class="tech-sum-lbl">Cloud Provider</span>
+        </div>
+        <div class="tech-sum-div"></div>
+        <div class="tech-sum-item"><span class="tech-sum-num">AI</span><span class="tech-sum-lbl">Core Engine</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">♻️ WasteSense</div>
+          <p>AI-powered waste segregation helper for a cleaner, greener planet.</p>
+          <div class="footer-badges">
+            <span class="f-badge">🔒 Secure</span>
+            <span class="f-badge">☁️ Cloud-Powered</span>
+            <span class="f-badge">🤖 AI-First</span>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#classifier">Classify Waste</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Categories</h4>
+          <ul>
+            <li><a href="#categories">🥬 Wet Waste</a></li>
+            <li><a href="#categories">🗑️ Dry Waste</a></li>
+            <li><a href="#categories">♻️ Recyclable</a></li>
+            <li><a href="#categories">📱 E-Waste</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4 class="footer-heading">Tech Stack</h4>
+          <ul>
+            <li><a href="#how-it-works">AWS Rekognition</a></li>
+            <li><a href="#how-it-works">Python Flask</a></li>
+            <li><a href="#how-it-works">Amazon S3</a></li>
+            <li><a href="#how-it-works">DynamoDB</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 WasteSense AI — Built with 💚 for a greener planet</p>
+        <p class="footer-tagline">Powered by AWS Rekognition · Flask · Python</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast" role="alert" aria-live="assertive" aria-atomic="true"></div>
+
+  <!-- Scroll to top -->
+  <button class="scroll-top" id="scroll-top-btn" aria-label="Scroll to top of page" title="Back to top">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
